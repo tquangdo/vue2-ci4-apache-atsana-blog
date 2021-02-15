@@ -5,7 +5,7 @@
     >
       <div class="container">
         <h3>Signup</h3>
-        <!-- <hr />
+        <hr />
         <form
           @submit.prevent="register()"
           class
@@ -74,65 +74,68 @@
                 />
               </div>
             </div>
-            <alert v-if="msg" :msg="msg" :classAlert="classAlert"></alert>
+            <alert
+              v-if="dataMsg"
+              :dataMsg="dataMsg"
+              :dataClassAlert="dataClassAlert"
+            ></alert>
           </div>
 
           <div class="row">
             <div class="col-12 col-sm-4">
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
             <div class="col-12 col-sm-8 text-right">
               <router-link to="/signin">Already have an account</router-link>
             </div>
           </div>
-        </form> -->
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import Alert from "./cmps/Alert";
+import Alert from "./cmps/Alert";
 export default {
-  //   data() {
-  //     return {
-  //       firstname: "",
-  //       lastname: "",
-  //       email: "",
-  //       password: "",
-  //       password_confirm: "",
-  //       msg: null,
-  //       classAlert: null,
-  //     };
-  //   },
-  //   methods: {
-  //     register() {
-  //       const form = new FormData();
-  //       form.append("firstname", this.firstname);
-  //       form.append("lastname", this.lastname);
-  //       form.append("email", this.email);
-  //       form.append("password", this.password);
-  //       form.append("password_confirm", this.password_confirm);
-  //       this.$guest
-  //         .post("/register", form)
-  //         .then(() => {
-  //           this.msg = "You have been successfully registered!";
-  //           this.classAlert = "success";
-  //           this.firstname = "";
-  //           this.lastname = "";
-  //           this.email = "";
-  //           this.password = "";
-  //           this.password_confirm = "";
-  //         })
-  //         .catch((err) => {
-  //           this.msg = err.response.data.messages.error;
-  //           this.classAlert = "danger";
-  //         });
-  //       //axios
-  //     },
-  //   },
-  //   components: {
-  //     Alert,
-  //   },
+  data() {
+    return {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      password_confirm: "",
+      dataMsg: null,
+      dataClassAlert: null,
+    };
+  },
+  methods: {
+    register() {
+      const form = new FormData();
+      form.append("firstname", this.firstname);
+      form.append("lastname", this.lastname);
+      form.append("email", this.email);
+      form.append("password", this.password);
+      form.append("password_confirm", this.password_confirm);
+      this.$guest
+        .post("/register", form)
+        .then(() => {
+          this.dataMsg = "You have been successfully registered!";
+          this.dataClassAlert = "success";
+          this.firstname = "";
+          this.lastname = "";
+          this.email = "";
+          this.password = "";
+          this.password_confirm = "";
+        })
+        .catch((err) => {
+          this.dataMsg = err.response.data.messages.error;
+          this.dataClassAlert = "danger";
+        });
+    },
+  },
+  components: {
+    Alert,
+  },
 };
 </script>
