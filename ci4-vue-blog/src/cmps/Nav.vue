@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+      <!-- khi click avatar: IF loggedin THEN home page ELSE login page -->
       <router-link class="navbar-brand" :to="propLoggedIn ? '/' : '/signin'">{{
         envBrand
       }}</router-link>
