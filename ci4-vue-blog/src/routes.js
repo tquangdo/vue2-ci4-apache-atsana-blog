@@ -12,7 +12,7 @@ const router = new Router({
         {
             path: "/",
             component: Admin,
-            name: "Home",
+            name: "RouteHome",
         },
         {
             path: "/post/:id",

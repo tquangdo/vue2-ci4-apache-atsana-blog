@@ -1,16 +1,16 @@
 <template>
   <div class="col-12">
     <div
-      :class="'alert alert-' + dataClassAlert"
+      :class="'alert alert-' + propClassAlert"
       role="alert"
-      v-html="dataMsg"
+      v-html="propMsg"
     ></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["dataMsg", "dataClassAlert"],
+  props: ["propMsg", "propClassAlert"],
 };
 </script>
 

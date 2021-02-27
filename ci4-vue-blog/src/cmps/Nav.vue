@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <router-link class="navbar-brand" :to="propsLoggedIn ? '/' : '/signin'">{{
+      <router-link class="navbar-brand" :to="propLoggedIn ? '/' : '/signin'">{{
         envBrand
       }}</router-link>
       <button
@@ -17,7 +17,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul v-if="!propsLoggedIn" class="navbar-nav mr-auto">
+        <ul v-if="!propLoggedIn" class="navbar-nav mr-auto">
           <MenuLink path="/signin" text="Signin"></MenuLink>
           <MenuLink path="/signup" text="Signup"></MenuLink>
         </ul>
@@ -36,7 +36,7 @@
 <script>
 import MenuLink from "./MenuLink";
 export default {
-  props: ["propsLoggedIn"],
+  props: ["propLoggedIn"],
   data() {
     return {
       envBrand: process.env.VUE_APP_APPNAME,
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     logout() {
-      // this.$store.dispatch("logout");
+      this.$store.dispatch("storeLogout");
     },
   },
 };

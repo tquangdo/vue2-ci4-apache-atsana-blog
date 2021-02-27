@@ -1,6 +1,6 @@
 import Vue from "vue";
 import axios from "axios";
-// import { store } from "../store/store";
+import { store } from "../store/store";
 
 const guest = axios.create({
     baseURL: "http://localhost/user",
@@ -27,18 +27,18 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-// api.interceptors.response.use(
-//     function (response) {
-//         return response;
-//     },
-//     function (error) {
-//         if (error.response.status === 401) {
-//             store.dispatch("logout");
-//         } else {
-//             return Promise.reject(error);
-//         }
-//     }
-// );
+api.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        if (error.response.status === 401) {
+            store.dispatch("storeLogout");
+        } else {
+            return Promise.reject(error);
+        }
+    }
+);
 
 Vue.prototype.$guest = guest;
 Vue.prototype.$api = api;

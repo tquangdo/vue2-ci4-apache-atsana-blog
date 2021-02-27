@@ -1,7 +1,7 @@
 <template>
   <div id="app-vue">
     <!-- components: {appNav: Nav,} -->
-    <app-nav></app-nav>
+    <app-nav :propLoggedIn="onLoggedIn"></app-nav>
     <div class="container">
       <router-view></router-view>
     </div>
@@ -14,6 +14,29 @@ export default {
   name: "App",
   components: {
     appNav: Nav, // <app-nav>
+  },
+  computed: {
+    onLoggedIn() {
+      return this.$store.getters.loginState;
+    },
+  },
+  created() {
+    const expires = localStorage.getItem("lsExpireDate");
+    const token = localStorage.getItem("lsAccessToken");
+    if (expires && token) {
+      var expiresMs = new Date(expires);
+      var now = new Date();
+      now = now.getTime();
+      expiresMs = expiresMs.getTime();
+      if (now > expiresMs) {
+        this.$store.dispatch("storeLogout");
+      } else {
+        this.$store.dispatch("storeLogin", expiresMs - now);
+      }
+    } else {
+      if (this.$router.currentRoute.name !== "Signin")
+        this.$router.push({ name: "Signin" });
+    }
   },
 };
 </script>

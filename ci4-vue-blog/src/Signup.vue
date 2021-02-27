@@ -75,9 +75,9 @@
               </div>
             </div>
             <alert
-              v-if="dataMsg"
-              :dataMsg="dataMsg"
-              :dataClassAlert="dataClassAlert"
+              v-if="propMsg"
+              :propMsg="propMsg"
+              :propClassAlert="propClassAlert"
             ></alert>
           </div>
 
@@ -105,8 +105,8 @@ export default {
       email: "",
       password: "",
       password_confirm: "",
-      dataMsg: null,
-      dataClassAlert: null,
+      propMsg: null,
+      propClassAlert: null,
     };
   },
   methods: {
@@ -120,8 +120,8 @@ export default {
       this.$guest
         .post("/register", form)
         .then(() => {
-          this.dataMsg = "You have been successfully registered!";
-          this.dataClassAlert = "success";
+          this.propMsg = "You have been successfully registered!";
+          this.propClassAlert = "success";
           this.firstname = "";
           this.lastname = "";
           this.email = "";
@@ -129,8 +129,8 @@ export default {
           this.password_confirm = "";
         })
         .catch((err) => {
-          this.dataMsg = err.response.data.messages.error;
-          this.dataClassAlert = "danger";
+          this.propMsg = err.response.data.messages.error;
+          this.propClassAlert = "danger";
         });
     },
   },
