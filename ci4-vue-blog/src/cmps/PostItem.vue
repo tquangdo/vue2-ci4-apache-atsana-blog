@@ -21,13 +21,13 @@
       >
       <button
         class="btn btn-outline-primary"
-        @click="$emit('edit', post.post_id, index)"
+        @click="$emit('onEmitEdit', post.post_id, index)"
       >
         Edit
       </button>
       <button
         class="btn btn-outline-danger float-right"
-        @click="$emit('delete', post.post_id, index)"
+        @click="$emit('onEmitDelete', post.post_id, index)"
       >
         Delete
       </button>

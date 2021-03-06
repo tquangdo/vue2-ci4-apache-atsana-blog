@@ -47,7 +47,7 @@ Vagrantfile
 logs
 www/PDFTronTest20210212
 sessions
-mysql/*
+mysql/
 
 #-------------------------
 # Temporary Files
@@ -89,6 +89,8 @@ phpunit
 #-------------------------
 www/codeigniter4/vendor/
 www/codeigniter4/composer.lock
+
+www/codeigniter4/public/assets/
 
 #-------------------------
 # IDE / Development Files

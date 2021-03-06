@@ -20,7 +20,7 @@ class Blog extends ResourceController
 		helper(['form']);
 
 		$rules = [
-			'title' => 'required|min_length[6]',
+			'title' => 'required|min_length[3]',
 			'description' => 'required',
 			'featured_image' => 'uploaded[featured_image]|max_size[featured_image, 1024]|is_image[featured_image]'
 		];
@@ -34,7 +34,9 @@ class Blog extends ResourceController
 			if (!$file->isValid())
 				return $this->fail($file->getErrorString());
 
-			$file->move('./assets/uploads');
+			if (!file_exists('./assets/uploads/'.$file->getName())){
+				$file->move('./assets/uploads');
+			}
 
 			$data = [
 				'post_title' => $this->request->getVar('title'),
@@ -59,7 +61,7 @@ class Blog extends ResourceController
 		helper(['form', 'array']);
 
 		$rules = [
-			'title' => 'required|min_length[6]',
+			'title' => 'required|min_length[3]',
 			'description' => 'required',
 		];
 
@@ -76,10 +78,6 @@ class Blog extends ResourceController
 		if (!$this->validate($rules)) {
 			return $this->fail(implode('<br>', $this->validator->getErrors()));
 		} else {
-			//$input = $this->request->getRawInput();
-
-
-
 			$data = [
 				'post_id' => $id,
 				'post_title' => $this->request->getVar('title'),
@@ -92,10 +90,11 @@ class Blog extends ResourceController
 				if (!$file->isValid())
 					return $this->fail($file->getErrorString());
 
-				$file->move('./assets/uploads');
+				if (!file_exists('./assets/uploads/'.$file->getName())){
+					$file->move('./assets/uploads');
+				}
 				$data['post_featured_image'] = $file->getName();
 			}
-
 			$this->model->save($data);
 			$data = $this->model->find($id);
 			return $this->respond($data);

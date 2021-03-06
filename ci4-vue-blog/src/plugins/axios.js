@@ -18,6 +18,7 @@ const api = axios.create({
     },
 });
 
+// Authorization: "Bearer " + token
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("lsAccessToken");
     if (token) {
@@ -27,6 +28,7 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+// return response OR error
 api.interceptors.response.use(
     function (response) {
         return response;
