@@ -11,6 +11,7 @@ const router = new Router({
     routes: [
         {
             path: "/",
+            exact: true,
             component: Admin,
             name: "RouteHome",
         },
