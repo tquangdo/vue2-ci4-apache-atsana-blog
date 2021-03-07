@@ -20,6 +20,7 @@
 # APP
 #--------------------------------------------------------------------
 
+app.baseURL = 'http://localhost/'
 # app.baseURL = ''
 # app.forceGlobalSecureRequests = false
 
@@ -48,6 +49,13 @@
 #--------------------------------------------------------------------
 # DATABASE
 #--------------------------------------------------------------------
+
+database.default.hostname = codeigniter4_mysql
+database.default.database = vueblog
+database.default.username = root
+database.default.password = root
+database.default.DBDriver = MySQLi
+database.default.DSN = 'mysql:dbname=vueblog;host=codeigniter4_mysql'
 
 # database.default.hostname = localhost
 # database.default.database = ci4
