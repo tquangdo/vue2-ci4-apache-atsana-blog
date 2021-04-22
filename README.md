@@ -1,6 +1,6 @@
 # Blog app 🚀
 
-![License](https://img.shields.io/github/license/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
+![License](?color=f05340)
 ![Stars](https://img.shields.io/github/stars/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
 ![Issues](https://img.shields.io/github/issues/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
 ![Forks](https://img.shields.io/github/forks/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
