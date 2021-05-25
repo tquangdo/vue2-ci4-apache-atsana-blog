@@ -1,5 +1,6 @@
 # Blog app 🚀
 
+![badge4](https://img.shields.io/badge/docker-3.3.1-blue)
 ![Stars](https://img.shields.io/github/stars/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
 ![Issues](https://img.shields.io/github/issues/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
 ![Forks](https://img.shields.io/github/forks/tquangdo/vue2-ci4-apache-atsana-blog?color=f05340)
